@@ -16,27 +16,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_25_120243) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.integer "amount"
+    t.string "icon"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
-  create_table "categories_groups", id: false, force: :cascade do |t|
+  create_table "categories_transactions", id: false, force: :cascade do |t|
     t.bigint "category_id", null: false
-    t.bigint "group_id", null: false
-    t.index ["category_id"], name: "index_categories_groups_on_category_id"
-    t.index ["group_id"], name: "index_categories_groups_on_group_id"
+    t.bigint "transaction_id", null: false
+    t.index ["category_id"], name: "index_categories_transactions_on_category_id"
+    t.index ["transaction_id"], name: "index_categories_transactions_on_transaction_id"
   end
 
-  create_table "groups", force: :cascade do |t|
+  create_table "transactions", force: :cascade do |t|
     t.string "name"
-    t.string "icon"
+    t.integer "amount"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_groups_on_user_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_25_120243) do
   end
 
   add_foreign_key "categories", "users"
-  add_foreign_key "categories_groups", "categories"
-  add_foreign_key "categories_groups", "groups"
-  add_foreign_key "groups", "users"
+  add_foreign_key "categories_transactions", "categories"
+  add_foreign_key "categories_transactions", "transactions"
+  add_foreign_key "transactions", "users"
 end
