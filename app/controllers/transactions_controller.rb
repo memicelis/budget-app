@@ -14,7 +14,7 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = current_user.related_transactions.build(transaction_params)
-    category_id = params[:group]
+    category_id = params.dig(:transaction, :category_id)
     @transaction.category_ids = category_id if category_id.present?
     if @transaction.save
       @category = Category.find(category_id) if category_id.present?
