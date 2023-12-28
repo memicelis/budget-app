@@ -1,0 +1,20 @@
+<h1>ADD NEW TRANSACTION</h1>
+
+<%= form_with(model: [Transaction.new], url: category_transactions_path(@category), method: :post) do |form| %>
+  <% if @transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+      <ul>
+        <% @transaction.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.text_field :name, placeholder: 'Name' %>
+  <%= form.text_field :amount, placeholder: 'Amount' %>
+  <%= select_tag "group", options_for_select(@categories.map { |group| [group.name, group.id] }), {prompt:"Select Category", required:true, class:"form-select"}%>
+  <%= form.submit 'Save' %>
+<% end %>
+

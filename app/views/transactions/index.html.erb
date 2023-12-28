@@ -1,0 +1,22 @@
+<div class="flex flex-col justify-between h-full">
+
+  <% if @transactions.exists? %>
+    <div class="flex flex-col">
+    <% @transactions.each do |transaction| %>
+      <div class="flex bg-white rounded-md shadow-md p-4 m-2 justify-between">
+        <span class="text-lg text-custom-normal mb-2"><%= transaction.name %></span>
+        <span class="text-custom-bold font-bold"><%= number_to_currency(transaction.amount) %></span>
+      </div>
+    <% end %>
+    </div>
+  <% else %>
+    <p class="text-custom-normal p-4 text-center">No transactions</p>
+  <% end %>
+
+  <div class="bg-custom-green px-2 py-3 text-center border-2 border-white">
+    <div class="border bg-custom-green text-white uppercase px-2 py-2">
+      <%= link_to 'Add new transaction', new_category_transaction_path, class: 'text-white' %>
+    </div>
+  </div>
+
+</div>
