@@ -2,12 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
 
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
+/* app/assets/stylesheets/application.css */
+
+
+
+body {
+  font-family: 'Proxima Nova', sans-serif;
 }
 
-*/
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+p, div {
+  font-weight: lighter; 
+}
+
+.bg-custom-blue{
+  background-color:#3778c2;
+}
+
+.bg-custom-green{
+  background-color: #5fb523;
+}
+
+.text-custom-bold {
+  color: #434b54;
+}
+
+.text-custom-normal {
+  color: #788991;
+}
+
+.text-custom-light {
+  color: #a3afb8; 
+}
