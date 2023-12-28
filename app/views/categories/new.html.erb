@@ -1,0 +1,6 @@
+<h1>ADD NEW CATEGORY</h1>
+<%= form_with(model:@category, url: categories_path ,method: :post) do |form|%>
+<%= form.text_field :name,placeholder: 'Name'%>
+<%= form.text_field :icon, placeholder: 'Icon'%>
+<%= form.submit 'Save'%>
+<% end %>

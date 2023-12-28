@@ -1,0 +1,27 @@
+<div class="h-full flex flex-col justify-between w-full">
+  <div>
+    <% if @categories.any? %>
+      <% @categories.each do |category| %>
+        <%= link_to category_transactions_path(category) do %>
+          <div class="bg-white rounded-md shadow-md h-32 flex m-2 p-2 items-center">
+            <figure class="w-24 mr-4"><img src="<%= category.icon %>"/></figure>
+            <div class="w-full flex justify-between px-2">
+              <span class="text-lg text-custom-normal"><%= category.name %></span>
+              <span class="text-custom-bold font-bold"><%= number_to_currency(category.total_amount_of_transactions) %></span>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p class="text-custom-normal p-4 text-center">No categories available.</p>
+    <% end %>
+  </div>
+
+  <div class="bg-custom-green px-2 py-3 text-center border-2 border-white">
+    <div class="border bg-custom-green text-white uppercase px-2 py-2">
+      <%= link_to 'Add new category', new_category_path, class: 'text-white' %>
+    </div>
+  </div>
+</div>
+
+
