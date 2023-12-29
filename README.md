@@ -1,5 +1,3 @@
-![Dheeraj logo](image.png)
-
 <a name="readme-top"></a>
 
   <h3><b>Budget App</b></h3>
@@ -68,7 +66,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://budget-app-enis.onrender.com/)
+- [Live Demo Link](https://elis-budget-app.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
