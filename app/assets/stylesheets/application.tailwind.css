@@ -2,28 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* app/assets/stylesheets/application.css */
-
-
-
 body {
   font-family: 'Proxima Nova', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
+.bg-custom-blue {
+  background-color: #3778c2;
 }
 
-p, div {
-  font-weight: lighter; 
-}
-
-.bg-custom-blue{
-  background-color:#3778c2;
-}
-
-.bg-custom-green{
+.bg-custom-green {
   background-color: #5fb523;
 }
 
@@ -36,5 +23,5 @@ p, div {
 }
 
 .text-custom-light {
-  color: #a3afb8; 
+  color: #a3afb8;
 }

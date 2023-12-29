@@ -1,20 +1,17 @@
-<h1>ADD NEW TRANSACTION</h1>
+ <%= form_with(model: [Transaction.new], url: category_transactions_path(@category), method: :post, class: 'h-full flex flex-col container') do |form| %>
+    <div class="container bg-white flex flex-col items-center">
+      <%= form.text_field :name, placeholder: 'Name',class: 'container border-none pl-4' %>
+      <hr class="w-11/12"/>
+      <%= form.text_field :amount, placeholder: 'Amount',class: 'container border-none pl-4' %>
+      <hr class="w-11/12"/>
+      <%= select_tag "transaction[category_id]", options_for_select(@categories.map { |category| [category.name, category.id] }), { prompt: "Select Category", required: true, class: "self-start border-none form-select text-custom-normal pl-4"} %>
+    </div>
 
-<%= form_with(model: [Transaction.new], url: category_transactions_path(@category), method: :post) do |form| %>
-  <% if @transaction.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
-      <ul>
-        <% @transaction.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+    <div class="bg-custom-green px-2 py-3 text-center border-2 border-white mt-auto">
+      <div class="border bg-custom-green text-white uppercase px-2 py-2">
+        <%= form.submit 'Save', class: 'text-white' %>
+      </div>
     </div>
   <% end %>
 
-  <%= form.text_field :name, placeholder: 'Name' %>
-  <%= form.text_field :amount, placeholder: 'Amount' %>
-  <%= select_tag "group", options_for_select(@categories.map { |group| [group.name, group.id] }), {prompt:"Select Category", required:true, class:"form-select"}%>
-  <%= form.submit 'Save' %>
-<% end %>
 
