@@ -1,0 +1,39 @@
+<% if user_signed_in? %>
+  <nav class="h-16 flex items-center justify-between bg-custom-blue p-4">
+    <% unless controller_name == 'categories' && action_name == 'index' %>
+    <%= link_to "<", back_path, class: "text-white text-2xl" %>
+    <% end %>
+    <span class="text-white text-xl font-semibold">
+      <% if controller_name == 'categories' && action_name == 'index' %>
+        Home
+      <% elsif controller_name == 'transactions' && action_name == 'index' %>
+        Transactions
+      <% elsif controller_name == 'categories' && action_name == 'new' %>
+        Add New Category
+      <% elsif controller_name == 'transactions' && action_name == 'new' %>
+        Add New Transaction
+      <% else %>
+        Budget Manager
+      <% end %>
+    </span>
+
+    <div class="space-x-4">
+      <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "text-white" %>
+    </div>
+  </nav>
+<% else %>
+  <% if controller_name == 'splash' && action_name == 'index' %>
+  <% elsif controller_name == 'sessions' && action_name == 'new' %>
+    <nav class="h-16 flex items-center justify-between bg-custom-blue p-4">
+      <%= link_to "<", back_path, class: "text-white text-4xl" %>
+      <span class="text-white text-xl font-semibold uppercase">Login</span>
+      <%= link_to "Log in", "#", class: "text-white", onclick: "document.getElementById('loginForm').submit(); return false;" %>
+    </nav>
+  <% elsif controller_name == 'registrations' && action_name == 'new' %>
+    <nav class="h-16 flex items-center justify-between bg-custom-blue p-4">
+      <%= link_to "<", back_path, class: "text-white text-4xl" %>
+      <span class="text-white text-xl font-semibold uppercase">Register</span>
+      <%= link_to "Next", "#", class: "text-white", onclick: "document.getElementById('registrationForm').submit(); return false;" %>
+    </nav>
+  <% end %>
+<% end %>
