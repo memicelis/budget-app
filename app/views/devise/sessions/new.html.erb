@@ -1,0 +1,8 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name) ,html: { id: 'loginForm',class: 'container flex flex-col items-center bg-white shadow-sm' }) do |f| %>
+      <%= f.email_field :email, class: "container border-none pl-4", placeholder: 'Email' %>
+      <hr class="w-11/12"/>
+      <%= f.password_field :password, class: "container border-none pl-4", placeholder: 'Password' %>
+<% end %>
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%= link_to "Forgot your password?", new_password_path(resource_name), class: "w-full inline-block px-4 py-2 text-gray-400 transition duration-300 ease-in-out rounded-md mb-2 text-center" %>
+<% end %>

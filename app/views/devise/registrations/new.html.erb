@@ -1,0 +1,9 @@
+ <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id:"registrationForm", class: "container flex flex-col items-center bg-white shadow-sm" }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+      <%= f.text_field :name, class: "container border-none pl-4", autofocus: true, autocomplete: "name", placeholder:'Full Name' %>
+      <hr class="w-11/12"/>
+      <%= f.email_field :email, class: "container border-none p-2 pl-4 ", autofocus: true, autocomplete: "email", placeholder: 'Email' %>
+      <hr class="w-11/12"/>
+      <%= f.password_field :password, class: "container border-none p-2 pl-4", autocomplete: "new-password", placeholder: 'Password' %>
+
+  <% end %>

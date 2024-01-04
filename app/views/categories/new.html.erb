@@ -1,0 +1,13 @@
+<%= form_with(model: @category, url: categories_path, method: :post, class: 'h-full flex flex-col container') do |form| %>
+  <div class="container bg-white flex flex-col items-center">
+  <%= form.text_field :name, placeholder: 'Name', class: 'container border-none pl-4' %>
+  <hr class="w-11/12"/>
+  <%= form.text_field :icon, placeholder: 'Icon', class: 'container border-none pl-4' %>
+  </div>
+
+  <div class="bg-custom-green px-2 py-3 text-center border-2 border-white mt-auto">
+    <div class="border bg-custom-green text-white uppercase px-2 py-2">
+      <%= form.submit 'Save', class: 'text-white' %>
+    </div>
+  </div>
+<% end %>
